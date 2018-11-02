@@ -5,19 +5,19 @@ Run Here: http://htmlpreview.github.io/?https://github.com/imlolman/Logo/blob/ma
 
 # Commands Supported
 
-rt - right turn
-lt - left turn
-fd - forward
-bk - backward
-pu - pen up
-pd - pen down
-ht - hide turtle
-st - show turtle
-repeat - to repeat the commands.
+rt - right turn <br>
+lt - left turn <br>
+fd - forward <br>
+bk - backward <br>
+pu - pen up <br>
+pd - pen down <br>
+ht - hide turtle <br>
+st - show turtle <br>
+repeat - to repeat the commands. <br>
 
 # Repeat syntax
 
-repeat loopCount [ commands ]
+` repeat loopCount [ commands ] `
 
 
 Inspired by https://www.youtube.com/watch?v=i-k04yzfMpw
