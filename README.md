@@ -14,15 +14,16 @@ pd - pen down <br>
 ht - hide turtle <br>
 st - show turtle <br>
 repeat - to repeat the commands. <br>
+pt - pen thickness in pixel <br>
+pc - color in hex or words <br>
+dt - a round dot twice the line width
 
 # Repeat syntax
 
 ` repeat loopCount [ commands ] `
 
 # Commands to be added (Contribute if you want 😍)
-pnclr - color in hex <br>
-pt    - pen thickness in pixel <br>
-dt    - a round big dot <br>
+we are all done 😃, Suggestions Accepted
 
 # Add extra pattern commands to the file AwesomePatterns
 

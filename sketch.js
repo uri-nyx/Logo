@@ -28,7 +28,7 @@ function drawChunks(chunks){
     while(i<chunks.length){
         if(checkIfValidCommand(chunks[i])){
             
-            if(chunks[i] == "fd" || chunks[i] == "bk" || chunks[i] == "rt" || chunks[i] == "lt"){
+            if(chunks[i] == "fd" || chunks[i] == "bk" || chunks[i] == "rt" || chunks[i] == "lt" || chunks[i] == "pt" || chunks[i] == "pc"){
                 commands[chunks[i]](chunks[++i])
             }else if(chunks[i] == "repeat"){
                 var times = chunks[++i];
@@ -82,16 +82,16 @@ function checkIfValidCommand(command){
 
 commands = {
     "fd": function(amt){
-        t.forward(amt)
+        t.forward(parseFloat(amt))
     },
     "bk": function(amt){
-        t.forward(-amt)
+        t.forward(-parseFloat(amt))
     },
     "rt": function(amt){
-        t.setAngle(amt)
+        t.setAngle(parseFloat(amt))
     },
     "lt": function(amt){
-        t.setAngle(-amt)
+        t.setAngle(-parseFloat(amt))
     },
     "pu": function(){
         t.pen = false
@@ -104,6 +104,15 @@ commands = {
     },
     "st": function(){
         t.turtleVisible = true
+    },
+    "pt": function(amt){
+        t.weight = parseFloat(amt)
+    },
+    "pc": function(amt){
+        t.penColor = amt
+    },
+    "dt": function(){
+        t.drawDot()
     },
     "repeat": function(){
         

@@ -1,3 +1,9 @@
+Simple rounded rings
+pu lt 90 fd 200 rt 90 pd repeat 36 [ fd 40 rt 10 ] repeat 36 [ repeat 36 [ fd 20 rt 10 ] fd 40 rt 10 ]
+
+Simple rounded rings with color, thickness and dots
+pt 2 pu lt 90 fd 200 rt 90 pd repeat 36 [ fd 40 rt 10 ] repeat 36 [ repeat 9 [ fd 20 rt 10 ] dt pc red pt 4 repeat 9 [ fd 20 rt 10 ] dt pc green repeat 9 [ fd 20 rt 10 ] dt pc blue repeat 9 [ fd 20 rt 10 pt 2 ] pc 255 fd 40 rt 10 dt] ht
+
 Hexagonal 3D Effect
 pu lt 90 fd 500 lt 90 fd 200 rt 180 pd repeat 20 [ pd repeat 40 [lt 60 fd 30 rt 60 fd 30 rt 120 fd 30 rt 60 fd 30 lt 120 fd 30 lt 60 fd 30 lt 120 fd 30 rt 60 fd 30 rt 120 fd 30 rt 60 fd 30 bk 30 lt 120] rt 120 fd 30 pu fd 30 rt 60 fd 2430 rt 180
 
