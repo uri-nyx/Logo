@@ -19,5 +19,11 @@ repeat - to repeat the commands. <br>
 
 ` repeat loopCount [ commands ] `
 
+# Commands to be added (Contribute if you want 😍)
+pnclr - color in hex <br>
+pt    - pen thickness in pixel <br>
+dt    - a round big dot <br>
+
+# Add extra pattern commands to the file AwesomePatterns
 
 Inspired by https://www.youtube.com/watch?v=i-k04yzfMpw
