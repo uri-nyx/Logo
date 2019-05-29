@@ -1,7 +1,7 @@
 # Logo
 My version of LOGO with Animation
 
-Run Here: http://htmlpreview.github.io/?https://github.com/imlolman/Logo/blob/master/index.html
+Run Here: https://imlolman.github.io/Logo/
 
 # Commands Supported
 
