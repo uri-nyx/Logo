@@ -11,6 +11,17 @@
         margin: 0;    
     }
     </style>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-142979168-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
+
+      gtag('config', '{{ site.google_analytics }}');
+    </script>
 </head>
 <body>
     <div id="sketch-holder" style="display: inline">
