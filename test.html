@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Test</title>
+    <script type="text/javascript"
+   src="https://cdn.jsdelivr.net/npm/emailjs-com@2.4.0/dist/email.min.js">
+</script>
+<script type="text/javascript">
+   (function(){
+      emailjs.init("h0XZ_1NA284MF8NDS"); //use your USER ID
+   })();
+   function sendEmail() {
+    var templateParams = {
+        name: 'James',
+        notes: 'Check this out!'
+      };
+      emailjs.send('service_6gp664n', 'template_t21gddd', templateParams) //use your Service ID and Template ID
+        .then(function (response) {
+          console.log('SUCCESS!', response.status, response.text);
+        }, function (error) {
+          console.log('FAILED...', error);
+        });
+}
+</script>
+</head>
+<body>
+    <input type="button" value="Send Email" onclick="sendEmail()">
+</body>
+</html>
