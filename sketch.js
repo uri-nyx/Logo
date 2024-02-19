@@ -1,8 +1,38 @@
 let editor;
 let t;
 
+const FD = "pal"; // forwards
+const BK = "pat"; // backwards
+const RT = "dcha"; // rigth turn
+const LT = "izda"; // left turn
+const PT = "gro"; // pen thickness
+const PC = "col"; // pen color
+const HT = "esc"; // hide turtle
+const ST = "ens"; // show turtle
+const DT = "pt"; // dot
+const PU = "lev"; // pen up
+const PD = "dib"; // pen down
+const REP = "rep";
+
+const FORWARD = "palante"; // forwards
+const BAKCWARD = "patrás"; // backwards
+const RIGTH = "derecha"; // rigth turn
+const LEFT = "izquierda"; // left turn
+const PENTH = "grosor"; // pen thickness
+const PENCOL = "color"; // pen color
+const HIDE = "esconde"; // hide turtle
+const SHOW = "enseña"; // show turtle
+const DOT = "punto"; // dot
+const PENUP = "levanta"; // pen up
+const PENDOWN = "dibuja"; // pen down
+const REPEAT = "repite";
+
+const one_arg = [FD, BK, RT, LT, PT, PC,
+                FORWARD, BAKCWARD, RIGTH, LEFT, PENTH, PENCOL];
+const repeats = [REP, REPEAT];
+
 function setup(){
-    var canvas = createCanvas(window.innerWidth/2-10,window.innerHeight-10)
+    var canvas = createCanvas(window.innerWidth/2-10,window.innerHeight-200)
     canvas.parent('sketch-holder');
     editor = select('#code');
     angleMode(DEGREES)
@@ -16,7 +46,7 @@ function makeIt(){
     background(51)
     push()
     translate(width/2,height/2)
-    chunks = editor.value().split(" ")
+    chunks = editor.value().split(/\s+/)
     drawChunks(chunks)
     t.makeTurtle()
     pop()
@@ -25,12 +55,24 @@ function makeIt(){
 function drawChunks(chunks){
     chunks = filterMyChunks(chunks);
     var i=0;
+    var comment = false;
     while(i<chunks.length){
+        if(comment){
+            if(chunks[i] == "}"){
+                comment = false;
+            }
+            i++;
+            continue;
+        }
+        if(chunks[i] == "{"){
+            comment = true;
+            i++;
+            continue;
+        }
         if(checkIfValidCommand(chunks[i])){
-            
-            if(chunks[i] == "fd" || chunks[i] == "bk" || chunks[i] == "rt" || chunks[i] == "lt" || chunks[i] == "pt" || chunks[i] == "pc"){
+            if(one_arg.includes(chunks[i])){
                 commands[chunks[i]](chunks[++i])
-            }else if(chunks[i] == "repeat"){
+            }else if(repeats.includes(chunks[i])){
                 var times = chunks[++i];
                 var endon;
                 if(chunks[++i] == "["){
@@ -81,40 +123,77 @@ function checkIfValidCommand(command){
 }
 
 commands = {
-    "fd": function(amt){
+    [FD]: function(amt){
         t.forward(parseFloat(amt))
     },
-    "bk": function(amt){
+    [BK]: function(amt){
         t.forward(-parseFloat(amt))
     },
-    "rt": function(amt){
+    [RT]: function(amt){
         t.setAngle(parseFloat(amt))
     },
-    "lt": function(amt){
+    [LT]: function(amt){
         t.setAngle(-parseFloat(amt))
     },
-    "pu": function(){
+    [PU]: function(){
         t.pen = false
     },
-    "pd": function(){
+    [PD]: function(){
         t.pen = true
     },
-    "ht": function(){
+    [HT]: function(){
         t.turtleVisible = false
     },
-    "st": function(){
+    [ST]: function(){
         t.turtleVisible = true
     },
-    "pt": function(amt){
+    [PT]: function(amt){
         t.weight = parseFloat(amt)
     },
-    "pc": function(amt){
+    [PC]: function(amt){
         t.penColor = amt
     },
-    "dt": function(){
+    [DT]: function(){
         t.drawDot()
     },
-    "repeat": function(){
+    [REPEAT]: function(){
+        
+    },
+
+    [FORWARD]: function(amt){
+        t.forward(parseFloat(amt))
+    },
+    [BAKCWARD]: function(amt){
+        t.forward(-parseFloat(amt))
+    },
+    [RIGTH]: function(amt){
+        t.setAngle(parseFloat(amt))
+    },
+    [LEFT]: function(amt){
+        t.setAngle(-parseFloat(amt))
+    },
+    [PENUP]: function(){
+        t.pen = false
+    },
+    [PENDOWN]: function(){
+        t.pen = true
+    },
+    [HIDE]: function(){
+        t.turtleVisible = false
+    },
+    [SHOW]: function(){
+        t.turtleVisible = true
+    },
+    [PENTH]: function(amt){
+        t.weight = parseFloat(amt)
+    },
+    [PENCOL]: function(amt){
+        t.penColor = amt
+    },
+    [DOT]: function(){
+        t.drawDot()
+    },
+    [REP]: function(){
         
     }
 }
@@ -124,7 +203,7 @@ var animLoop;
 var k;
 
 function animateIt(){
-    document.getElementById("animBTN").innerHTML = "Stop it";
+    document.getElementById("animBTN").innerHTML = "Parar";
     document.getElementById("animBTN").setAttribute("onclick","stopIt()");
     k = 10;
     realcode = document.getElementById("code").value;
@@ -135,7 +214,7 @@ function animateIt(){
 
 function setIntervelAnimatedLoop(speed){
     animLoop = setInterval(function(){
-        document.getElementById("code").value = "rt "+k+" " + realcode;
+        document.getElementById("code").value = "derecha "+k+" " + realcode;
         k+=speed*1;
         makeIt();
         if(document.getElementById("speed").value != speed){
@@ -146,7 +225,7 @@ function setIntervelAnimatedLoop(speed){
 }
 
 function stopIt(){
-    document.getElementById("animBTN").innerHTML = "Animate";
+    document.getElementById("animBTN").innerHTML = "Animar";
     document.getElementById("animBTN").setAttribute("onclick","animateIt()");
     clearInterval(animLoop);
     document.getElementById("code").value = realcode;

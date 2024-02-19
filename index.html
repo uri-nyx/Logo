@@ -1,39 +1,425 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
+
 <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/picnic">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.2/p5.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.2/addons/p5.dom.min.js"></script>
     <script src="turtle.js"></script>
     <script src="sketch.js"></script>
-    <title>Document</title>
-    <meta property="og:image" content="https://repository-images.githubusercontent.com/155853195/f2b63000-9488-11e9-824e-0a1cf07d3be5" />
-    <script src="https://imlolman.github.io/js/controller.js"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,100..900;1,100..900&family=Share+Tech+Mono&family=Silkscreen:wght@400;700&family=Workbench&display=swap"
+        rel="stylesheet">
+    <title>P.A.C.O</title>
+
     <style>
-    body{
-        margin: 0;    
-    }
+        .background {
+
+            position: absolute;
+            display: block;
+            top: 0;
+            left: 0;
+            z-index: 0;
+        }
+
+        html {
+            scrollbar-width: none;
+            scroll-behavior: smooth;
+            padding-left: 2vw;
+            padding-right: 2vw;
+            scroll-padding: 10vh;
+        }
+
+        html::-webkit-scrollbar {
+            display: none;
+        }
+
+        .paco {
+            padding: 0;
+            margin: 0;
+            height: 0;
+        }
+
+        .paco img {
+            height: 52vh;
+            padding-left: 25vw;
+            padding-top: 27vh;
+        }
+
+        #presentacion {
+            position: relative;
+            height: 90vh;
+            text-align:left;
+            padding-top: 5vh;
+            z-index: 100;
+        }
+
+        #presentacion h1 {
+            font-size: 7em;
+            padding-bottom: 0;
+        }
+
+        #presentacion h3 {
+            font-size: 2em;
+        }
+
+
+        h1,
+        h2,
+        h3,
+        button,
+        span,
+        table,
+        code {
+            font-family: 'Workbench';
+        }
+
+        h1,
+        h2,
+        h3,
+        span,
+        code {
+            color: #FFBF00;
+        }
+
+        button,
+        th,
+        .button {
+            background-color: #00897B;
+            color: #FFBF00;
+        }
+
+        .dangerous {
+            background-color: #E53935;
+        }
+
+        .button.success {
+            background-color: #78909C;
+        }
+
+        textarea {
+            font-family: 'Share Tech Mono', monospace;
+        }
+
+        body {
+            padding-top: 10vh;
+            font-family: 'Silkscreen', serif;
+            color: #E0E0E0;
+            background-color: #121212;
+        }
+
+        input {
+            color: #E0E0E0;
+            background-color: #121212;
+            font-family: 'Share Tech Mono', monospace;
+            border-color: #FFBF00;
+        }
+
+        textarea:active, input:active {
+            border-color: #E0E0E0;
+        }
+
+        textarea:focus, input:focus {
+            border-color: #00897B;
+        }
+
+        code,
+        nav,
+        article,
+        textarea,
+        .card, 
+        .dark.menu {
+            background-color: #333333;
+            border-color: #FFBF00;
+        }
+
+        nav .show~.menu {
+            background: #333333;
+        }
+
+        .card header {
+            border-color: #FFBF00;
+        }
+
+        #doc,
+        #retos,
+        #ranking {
+            padding-top: 10vh;
+        }
+
+        textarea {
+            height: 62.2vh;
+            font-size: 1.25em;
+        }
+
+
+        .compact {
+            line-height: 1.2em;
+        }
+
+        .vt {
+            font-family: 'Workbench';
+        }
     </style>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-142979168-1"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag('js', new Date());
-
-      gtag('config', '{{ site.google_analytics }}');
-    </script>
 </head>
+
 <body>
-    <div id="sketch-holder" style="display: inline">
-        <!-- Our sketch will go here! -->
+    <header class="vt">
+        <nav>
+            <a href="#" class="brand">
+                <img class="logo" src="paco.svg" />
+                <span>P.A.C.O</span>
+            </a>
+
+            <!-- responsive-->
+            <input id="bmenub" type="checkbox" class="show">
+            <label for="bmenub" class="burger pseudo button">Menú</label>
+
+            <div class="dark menu">
+                <a href="#ranking" class="pseudo button icon-picture">Ranking</a>
+                <a href="#retos" class="pseudo button icon-picture">Retos</a>
+                <a href="#doc" class="button icon-puzzle">Ayuda</a>
+            </div>
+        </nav>
+    </header>
+
+    <div id="presentacion" class="vt">
+        <div class="flex three-600">
+            <div class="none full-1200 paco">
+                <img class="logo" src="paco.svg" />
+            </div>
+            <div class="off-half-600">
+                <h1>P.A.C.O</h1>
+                <h3><em>Programa Autómatico de Chapuzas por Ordenador</em></h3>
+                <a href="#paco" class="button">¡Empieza a enredar!</a>
+            </div>
+        </div>
     </div>
-    <textarea id="code" style="border:2px solid rgb(51,51,51);float:right;width:50%;height:-webkit-fill-available;font-size:30px">pt 2 pu lt 90 fd 200 rt 90 pd repeat 36 [ fd 40 rt 10 ] repeat 36 [ repeat 9 [ fd 20 rt 10 ] dt pc red pt 4 repeat 9 [ fd 20 rt 10 ] dt pc green repeat 9 [ fd 20 rt 10 ] dt pc blue repeat 9 [ fd 20 rt 10 pt 2 ] pc 255 fd 40 rt 10 dt] ht</textarea><br>
-    <div class="controls" style="position:fixed; top:10px;left:10px;color:#fff">
-        <button onclick="animateIt()" id="animBTN">Animate</button>
-        Speed : <input type="range" id="speed" min="0.1" max="30" value="1" style="float:right;width:200px;">
+
+    <div id="paco" class="flex center two-1200 center-1200">
+        <div>
+            <article class="card">
+                <div id="sketch-holder">
+                    <!-- Our sketch will go here! -->
+                </div>
+                <footer>
+                    <div class="controls">
+                        <button class="button success stack" onclick="animateIt()" id="animBTN">Animar</button>
+                        <input class="stack" type="range" id="speed" min="0.1" max="30" value="1">
+                    </div>
+                </footer>
+            </article>
+        </div>
+        <div>
+            <article class="card">
+                <header>
+                    <span class="button success">Escribe aquí las órdenes para P.A.C.O</span>
+                    <button class="dangerous">Enviar</button>
+                </header>
+                <footer>
+                    <fieldset>
+                        <textarea id="code" spellcheck="false">palante 100</textarea>
+                        <div class="flex three-600">
+                            <label><input type="text" placeholder="Grupo"></label>
+                            <label><input type="password" placeholder="Contraseña"></label>
+                            <label><input type="number" placeholder="Reto (nº)"></label>
+                        </div>
+                    </fieldset>
+                </footer>
+            </article>
+        </div>
     </div>
-    
+
+    <div id="ani">
+        <div id="doc" class="flex center two-600">
+            <div>
+                <h1>Ayuda</h1>
+                <h2>¿Necesitas un poco de ayuda?</h2>
+                <p>Aquí tienes todas las órdenes que le puedes dar a <b class="vt">P.A.C.O</b>
+                    (con abreviaturas entre paréntesis), y sus explicaciones.
+                    Recuerda que puedes poner anotaciones entre <code>{</code> y <code>}</code>,
+                    que <b class="vt">P.A.C.O</b> no ejecutará.</p>
+
+                <h2>¿Cómo funciona la orden <code>repite</code>?</h2>
+                <p><b class="vt">P.A.C.O</b> repetirá todas las órdenes que le des entre
+                    <code>[</code> y <code>]</code>, el número de veces que le digas
+                    ¡Acuérdate de que algunas órdenes necesitan un número, pero otras no!
+                </p>
+
+                <h2>¿Cómo envío el reto?</h2>
+                <p>Rellena el nombre de tu grupo, vuestra contraseña, y pon el
+                    <em>número</em> del reto. Después dale al botón rojo <em>enviar</em>.
+                    Los puntos se actualizarán en un par de horas.
+                </p>
+
+            </div>
+            <div>
+                <h2>Comandos</h2>
+                <div class="compact">
+                    <p><code>palante</code>(o <code>pal</code>) <code>nº</code>: anda palante un <code>nº</code> de
+                        pasos.
+                    </p>
+                    <p><code>patrás</code>(o <code>pat</code>) <code>nº</code>: anda patrás un <code>nº</code> de pasos.
+                    </p>
+                    <p><code>derecha</code>(o <code>dcha</code>) <code>nº</code>: gira a la derecha un <code>nº</code>
+                        de
+                        grados.</p>
+                    <p><code>izquierda</code>(o <code>izda</code>) <code>nº</code>: gira a la izquierda un
+                        <code>nº</code>
+                        de grados.
+                    </p>
+                    <p><code>grosor</code>(o <code>gro</code>) <code>nº</code>: usa una tiza de un <code>nº</code></p>
+                    <p><code>color</code>(o <code>col</code>) <code>c</code>: usa una tiza de color <code>c</code>.
+                        <small>(<b>atentción</b> ¡solo entiende colores en <em>inglés</em>!)</small>
+                    </p>
+                    <p><code>esconde</code>(o <code>esc</code>): esconde la flecha.</p>
+                    <p><code>enseña</code>(o <code>ens</code>): enseña la flecha.</p>
+                    <p><code>punto</code>(o <code>pt</code>): dibuja un punto.</p>
+                    <p><code>levanta</code>(o <code>lev</code>): levanta la tiza.</p>
+                    <p><code>dibuja</code>(o <code>dib</code>): dibuja con la tiza.</p>
+                    <p><code>repite</code>(o <code>rep</code>) <code>nº [ órdenes ]</code>: repite un <code>nº</code> de
+                        órdenes.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="retos" class="flex center three-600">
+        <div>
+            <h1>Retos</h1>
+            <span class="button stack icon-picture">Reto 1</span>
+            <span class="button stack icon-puzzle">Reto 2</span>
+            <span class="button stack icon-file-code">Reto 3</span>
+            <span class="button stack icon-help-circled">Reto 4</span>
+            <span class="button stack icon-help-circled">Reto 5</span>
+        </div>
+    </div>
+
+    <div id="ranking" class="flex center three-600">
+        <article class="card">
+            <header>
+                <h1>Rankings</h1>
+            </header>
+            <div class="flex center">
+                <div>
+                    <article>
+                        <header>
+                            <h2>Ranking de 1º ESO A</h2>
+                        </header>
+
+                        <footer>
+                            <center>
+                                <table class="primary">
+                                    <thead>
+                                        <tr>
+                                            <th>Grupo</th>
+                                            <th>Puntos</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Francisco</td>
+                                            <td>1</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Eve</td>
+                                            <td>2</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Martin</td>
+                                            <td>4</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Sarah</td>
+                                            <td>6</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </center>
+                        </footer>
+                    </article>
+                </div>
+
+                <div>
+                    <article>
+                        <header>
+                            <h2>Ranking de 1º ESO B</h3>
+                        </header>
+
+                        <footer>
+                            <center>
+                                <table class="primary">
+                                    <thead>
+                                        <tr>
+                                            <th>Grupo</th>
+                                            <th>Puntos</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Francisco</td>
+                                            <td>1</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Eve</td>
+                                            <td>2</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Martin</td>
+                                            <td>4</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Sarah</td>
+                                            <td>6</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </center>
+                        </footer>
+                    </article>
+                </div>
+            </div>
+        </article>
+    </div>
+
+
+    <canvas class="background"></canvas>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/particlesjs/2.2.2/particles.min.js"></script>
+    <script>
+        window.onload = function () {
+            Particles.init({
+                selector: '.background',
+                color: "#FFBF00",
+
+                // options for breakpoints
+                responsive: [
+                    {
+                        breakpoint: 768,
+                        options: {
+                            maxParticles: 200,
+                            color: '#48F2E3',
+                            connectParticles: false
+                        }
+                    }, {
+                        breakpoint: 425,
+                        options: {
+                            maxParticles:100,
+                            connectParticles:true
+                        }
+                    }, {
+                        breakpoint: 320,
+                        options: {
+                            maxParticles: 0
+                            // disables particles.js
+                        }
+                    }
+                ]
+            });
+        };
+    </script>
 </body>
+
 </html>

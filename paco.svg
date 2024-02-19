@@ -1,0 +1,15 @@
+<svg width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+  <!-- Fondo del rostro -->
+  <rect width="200" height="200" fill="#FFBF00" />
+  <!-- Ojos -->
+  <circle cx="60" cy="80" r="20" fill="#121212" />
+  <circle cx="140" cy="80" r="20" fill="#121212" />
+  <!-- Boca -->
+  <rect x="60" y="130" width="80" height="20" fill="#121212" />
+  <!-- Detalles de tecnología: Antenas -->
+  <line x1="50" y1="20" x2="50" y2="0" stroke="#121212" stroke-width="5"/>
+  <line x1="150" y1="20" x2="150" y2="0" stroke="#121212" stroke-width="5"/>
+  <!-- Detalles en los ojos: Brillo -->
+  <circle cx="55" cy="75" r="5" fill="#78909C" />
+  <circle cx="135" cy="75" r="5" fill="#78909C" />
+</svg>
