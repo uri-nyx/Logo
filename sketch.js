@@ -50,6 +50,19 @@ function setup(){
     makeIt();
 }
 
+function windowResized() {
+    let sizew;
+    let sizex;
+    if (window.width < 500) {
+        sizew = window.innerWidth - 40;
+        sizex = window.innerHeight/2;
+    } else {
+        sizew = window.innerWidth/2-20;
+        window.innerHeight-200;
+    }
+    resizeCanvas(sizew, sizex);
+  }
+
 function makeIt(){
     t.build(0)
     background(51)

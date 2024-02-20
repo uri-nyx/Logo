@@ -171,8 +171,26 @@
 
         @media only screen and (max-width: 600px) {
             .mobile {
-                height: 10vh;
+                height: 30vh;
                 width: 90vw;
+            }
+          }
+
+        @media only screen and (max-height: 600px) {
+            .hide-mobile {
+                display: none;
+            }
+
+            .background {
+                display: none;
+            }
+
+            #presentacion {
+                display: none;
+            }
+
+            #paco {
+                padding-top: 10vh;
             }
           }
     </style>
@@ -198,7 +216,7 @@
         </nav>
     </header>
 
-    <div id="presentacion" class="vt">
+    <div id="presentacion" class="vt ">
         <div class="flex three-600">
             <div class="none full-1200 paco">
                 <img class="logo" src="paco.svg" />
