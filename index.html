@@ -163,9 +163,18 @@
             line-height: 1.2em;
         }
 
+
+
         .vt {
             font-family: 'Workbench';
         }
+
+        @media only screen and (max-width: 600px) {
+            .mobile {
+                height: 10vh;
+                width: 90vw;
+            }
+          }
     </style>
 </head>
 
@@ -205,7 +214,7 @@
     <div id="paco" class="flex center two-1200 center-1200">
         <div>
             <article class="card">
-                <div id="sketch-holder">
+                <div id="sketch-holder" class="mobile">
                     <!-- Our sketch will go here! -->
                 </div>
                 <footer>

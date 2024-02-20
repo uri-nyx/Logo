@@ -32,7 +32,16 @@ const one_arg = [FD, BK, RT, LT, PT, PC,
 const repeats = [REP, REPEAT];
 
 function setup(){
-    var canvas = createCanvas(window.innerWidth/2-10,window.innerHeight-200)
+    let sizew;
+    let sizex;
+    if (window.width < 500) {
+        sizew = window.innerWidth - 40;
+        sizex = window.innerHeight/2;
+    } else {
+        sizew = window.innerWidth/2-20;
+        window.innerHeight-200;
+    }
+    var canvas = createCanvas(sizew,sizex)
     canvas.parent('sketch-holder');
     editor = select('#code');
     angleMode(DEGREES)
