@@ -273,7 +273,6 @@
         <article id="editor" class="card show-mobile mobile">
             <header>
                 <a class="button success" href="pacomobile.html">Escribe aquí las órdenes para P.A.C.O móvil</a>
-                <button class="dangerous hide-mobile">Enviar</button>
             </header>
             <footer>
                 <fieldset>
@@ -282,7 +281,6 @@
                         <label><input type="text" placeholder="Grupo"></label>
                         <label><input type="password" placeholder="Contraseña"></label>
                         <label><input type="number" placeholder="Reto (nº)"></label>
-                        <label><input type="submit" class="button dangerous show-mobile"/></label>
                     </div>
                 </fieldset>
             </footer>
@@ -294,6 +292,7 @@
                 </div>
                 <footer>
                     <div class="controls">
+                        <button class="button dangerous stack show-mobile">Enviar</button>
                         <button class="button success stack" onclick="animateIt()" id="animBTN">Animar</button>
                         <input class="stack" type="range" id="speed" min="0.1" max="30" value="1">
                     </div>
