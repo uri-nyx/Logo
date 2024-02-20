@@ -33,21 +33,23 @@ const repeats = [REP, REPEAT];
 
 let sizew = window.innerWidth;
 let sizex = window.innerHeight;
+let id = "#code";
 
 
 function setup(){
     if (window.innerWidth < 600 || window.innerHeight < 600) {
+        id = "#code-mobile";
         sizew = window.innerWidth * 0.90;
         sizex = window.innerHeight/2;
     } else {
+        id = "#code";
         sizew = window.innerWidth/2-20;
         sizex = window.innerHeight * 0.685;
     }
 
-    console.log("W,H", sizew, window.innerWidth, sizex, window.innerHeight);
     var canvas = createCanvas(sizew,sizex)
     canvas.parent('sketch-holder');
-    editor = select('#code');
+    editor = select(id);
     angleMode(DEGREES)
     t = new Turtle(0);
     editor.input(makeIt);
@@ -56,14 +58,16 @@ function setup(){
 
 function windowResized() {
     if (window.innerWidth < 600 || window.innerHeight < 600) {
+        id = "#code-mobile";
         sizew = window.innerWidth * 0.90;
         sizex = window.innerHeight/2;
     } else {
+        id = "#code";
         sizew = window.innerWidth/2-20;
         sizex = window.innerHeight * 0.685;
     }
     resizeCanvas(sizew, sizex);
-    editor = select('#code');
+    editor = select(id);
     editor.input(makeIt);
     makeIt();
   }
