@@ -36,9 +36,8 @@ let sizex = window.innerHeight;
 
 
 function setup(){
-    if (window.innerWidth < 500) {
-        console.log("<500", window.width);
-        sizew = window.innerWidth - 40;
+    if (window.innerWidth < 600 || window.innerHeight < 600) {
+        sizew = window.innerWidth * 0.90;
         sizex = window.innerHeight/2;
     } else {
         sizew = window.innerWidth/2-20;
@@ -56,8 +55,8 @@ function setup(){
 }
 
 function windowResized() {
-    if (window.width < 300) {
-        sizew = window.innerWidth;
+    if (window.innerWidth < 600 || window.innerHeight < 600) {
+        sizew = window.innerWidth * 0.90;
         sizex = window.innerHeight/2;
     } else {
         sizew = window.innerWidth/2-20;

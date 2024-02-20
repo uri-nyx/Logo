@@ -175,7 +175,7 @@
             font-family: 'Workbench';
         }
 
-        @media only screen and (min-width: 700px) {
+     @media only screen and (min-width: 601px) and (min-height: 601px) {
         .show-mobile {
             display: none;
         }
@@ -189,7 +189,7 @@
 
             .hide-mobile {
             display: none;
-        }
+            }
 
             .background {
                 display: none;
@@ -204,6 +204,10 @@
           }
 
         @media only screen and (max-height: 600px) {
+            .mobile {
+                height: 30vh;
+                width: 90vw;
+            }
             .hide-mobile {
                 display: none;
             }
@@ -257,6 +261,23 @@
     </div>
 
     <div id="paco" class="flex center two-1200 center-1200">
+        <article id="editor" class="card show-mobile">
+            <header>
+                <a class="button success" href="pacomobile.html">Escribe aquí las órdenes para P.A.C.O móvil</a>
+                <button class="dangerous hide-mobile">Enviar</button>
+            </header>
+            <footer>
+                <fieldset>
+                    <textarea id="code" spellcheck="false">palante 100</textarea>
+                    <div class="flex three-600">
+                        <label><input type="text" placeholder="Grupo"></label>
+                        <label><input type="password" placeholder="Contraseña"></label>
+                        <label><input type="number" placeholder="Reto (nº)"></label>
+                        <label><input type="submit" class="button dangerous show-mobile"/></label>
+                    </div>
+                </fieldset>
+            </footer>
+        </article>
         <div>
             <article class="card">
                 <div id="sketch-holder">
@@ -271,7 +292,7 @@
             </article>
         </div>
         <div>
-            <article id="editor" class="card">
+            <article id="editor" class="card hide-mobile">
                 <header>
                     <a class="button success" href="pacomobile.html">Escribe aquí las órdenes para P.A.C.O móvil</a>
                     <button class="dangerous hide-mobile">Enviar</button>
