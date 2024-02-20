@@ -31,16 +31,21 @@ const one_arg = [FD, BK, RT, LT, PT, PC,
                 FORWARD, BAKCWARD, RIGTH, LEFT, PENTH, PENCOL];
 const repeats = [REP, REPEAT];
 
+let sizew = window.innerWidth;
+let sizex = window.innerHeight;
+
+
 function setup(){
-    let sizew;
-    let sizex;
-    if (window.width < 500) {
+    if (window.innerWidth < 500) {
+        console.log("<500", window.width);
         sizew = window.innerWidth - 40;
         sizex = window.innerHeight/2;
     } else {
         sizew = window.innerWidth/2-20;
-        window.innerHeight-200;
+        sizex = window.innerHeight * 0.685;
     }
+
+    console.log("W,H", sizew, window.innerWidth, sizex, window.innerHeight);
     var canvas = createCanvas(sizew,sizex)
     canvas.parent('sketch-holder');
     editor = select('#code');
@@ -51,17 +56,14 @@ function setup(){
 }
 
 function windowResized() {
-    let sizew;
-    let sizex;
     if (window.width < 300) {
-        sizew = window.innerWidth - 40;
+        sizew = window.innerWidth;
         sizex = window.innerHeight/2;
     } else {
         sizew = window.innerWidth/2-20;
-        window.innerHeight-200;
+        sizex = window.innerHeight * 0.685;
     }
     resizeCanvas(sizew, sizex);
-    canvas.parent('sketch-holder');
     editor = select('#code');
     editor.input(makeIt);
     makeIt();
@@ -71,7 +73,8 @@ function makeIt(){
     t.build(0)
     background(51)
     push()
-    translate(width/2,height/2)
+    console.log("W, H", sizew, sizex);
+    translate(sizew/2,sizex/2);
     chunks = editor.value().split(/\s+/)
     drawChunks(chunks)
     t.makeTurtle()
