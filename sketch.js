@@ -53,7 +53,7 @@ function setup(){
 function windowResized() {
     let sizew;
     let sizex;
-    if (window.width < 500) {
+    if (window.width < 300) {
         sizew = window.innerWidth - 40;
         sizex = window.innerHeight/2;
     } else {
@@ -61,6 +61,10 @@ function windowResized() {
         window.innerHeight-200;
     }
     resizeCanvas(sizew, sizex);
+    canvas.parent('sketch-holder');
+    editor = select('#code');
+    editor.input(makeIt);
+    makeIt();
   }
 
 function makeIt(){
