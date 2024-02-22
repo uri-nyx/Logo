@@ -1,0 +1,47 @@
+{PERSPECTIVA}
+rep 4 [ pal 100 derecha 90 ]
+lev izda 135 pal 50
+dib dcha 135
+rep 4 [ pal 100 derecha 90 ]
+dcha 45
+pal 50 dcha 45 pal 100
+dcha 135 pal 50
+dcha 135
+pal 100 dcha 45
+pal 50
+izda 135 pal 100
+izda 45
+pal 50
+lev izda 45 pal 200
+dib color red
+pal 30 izda 80 pal 100 izda 100 pal 60
+izda 96.5 pal 99.3 lev
+pat 99.3 color green 
+dcha 96.5 dcha 90
+dib pal 50 dcha 90 pal 60 dcha 90 pal 50
+lev
+color goldenrod gro 4
+pal 150
+dib
+pal 60 dcha 90 pal 10 rep 180 [ pal 0.3 dcha 1 ] lev {P}
+pat 40 dcha 90 pal 20 dcha 90 pal 25 izda 180
+dib pal 25 izda 90 pal 20 izda 90 pal 15 pat 15 dcha 90 pal 25 izda 90 pal 25 {E}
+lev pal 20 izda 90 dib
+pal 45 dcha 90 pal 10 rep 180 [ pal 0.2 dcha 1 ] lev pat 5 dib izda 90 izda 30 pal 25 {R}
+lev izda 60 pal 10
+dib pal 10 rep 160 [ pal 0.2 izda 1 ] dcha 10 pal 5 rep 180 [ pal 0.2 dcha 1 ] {S}
+lev izda 30 pal 20 
+dib pal 10 rep 180 [ pal 0.2 dcha 1 ] pal 10 izda 90 pal 25 {P}
+lev izda 90 pal 35 izda 180 
+dib pal 25 izda 90 pal 20 izda 90 pal 15 pat 15 dcha 90 pal 25 izda 90 pal 25 {E}
+lev pal 40 izda 180
+dib pal 10 rep 180 [ pal 0.4 izda 1 ] pal 10 {C}
+lev pal 20
+dib pal 50 pat 25 dcha 90 pal 40 {T}
+lev izda 90 pal 30 dcha 90
+dib pal 40 {I}
+lev izda 90 pal 30 dcha 70
+dib pal 50 izda 140 pal 50 {V}
+lev dcha 70 pal 20 dcha 90 pal 50
+dib dcha 15 pal 50 pat 30 izda 105 pal 10 dcha 75 pal 30 {A}
+rep 360 [color blue pal 1 color red pal 1 dcha 1]
