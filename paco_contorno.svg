@@ -1,0 +1,9 @@
+<svg width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+  <!-- Fondo del rostro, contorno -->
+  <rect width="200" height="200" fill="none" stroke="#FFBF00" stroke-width="4"/>
+  <!-- Ojos -->
+  <circle cx="60" cy="80" r="20" fill="none" stroke="#FFBF00" stroke-width="4" />
+  <circle cx="140" cy="80" r="20" fill="none" stroke="#FFBF00" stroke-width="4" />
+  <!-- Boca simplificada a una sola línea -->
+  <line x1="60" y1="150" x2="140" y2="150" stroke="#FFBF00" stroke-width="4"/>
+</svg>

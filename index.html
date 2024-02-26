@@ -397,11 +397,26 @@
     <div id="retos" class="flex center three-600">
         <div>
             <h1>Retos</h1>
-            <span class="button stack icon-picture">Reto 1</span>
-            <span class="button stack icon-puzzle">Reto 2</span>
-            <span class="button stack icon-file-code">Reto 3</span>
-            <span class="button stack icon-help-circled">Reto 4</span>
-            <span class="button stack icon-help-circled">Reto 5</span>
+            <span class="button stack icon-picture">Reto 1: Hexágono</span>
+            <p>Dibuja un hexágono regular <br><small>(<b>PISTA:</b> todos los lados deben 
+                medir lo mismo y sus ángulos son de 60 grados)</small></p>
+            <span class="button stack icon-puzzle">Reto 2: Letra "Q"</span>
+            <p>Dibuja una letra "Q" mayúscula <br><small>(<b>PISTA:</b> puede 
+                ser útil usar la orden <code>levanta</code>)</small></p>
+            <span class="button stack icon-file-code">Reto 3: Retrato de <b class="vt">P.A.C.O</b> <b>o</b> Estrella</span>
+            <p>Puedes elegir uno de estos dos retos: 
+                <ol type="a">
+                    <li>Retrato de <b class="vt">P.A.C.O</b>: dibuja este retrato 
+                        de <b class="vt">P.A.C.O</b>
+                        <img src="paco_contorno.svg" alt="contorno de P.A.C.O">
+                    </li>
+                    <li>Una estrella de cinco puntas <small>(recuerda que es más dificil pero da <b>un punto extra</b>)</small>
+                        <img src="estrella.svg" alt="contorno de P.A.C.O">
+                    </li>
+                </ol>
+            </p>
+            <!-- <span class="button stack icon-help-circled">Reto 4</span>
+            <span class="button stack icon-help-circled">Reto 5</span>-->
         </div>
     </div>
 
@@ -473,7 +488,7 @@
         //var textarea = document.getElementById(editor_id.substring(1));
 
         // start the decorator
-        decorator = new TextareaDecorator( textarea, parser );
+        //decorator = new TextareaDecorator( textarea, parser );
 
             Particles.init({
                 selector: '.background',
