@@ -1,30 +1,20 @@
-# Logo
-My version of LOGO with Animation
+# P.A.C.O
 
-Run Here: https://imlolman.github.io/Logo/
+This is a very simple version of LOGO (forked from https://imlolman.github.io/Logo/), 
+translated to Spanish. It is aimed to be used in high schools, as an introduction to
+programming, geometry, and generative art.
 
-# Commands Supported
+Try it at https://www.ars-chromatica.art or download this repo and open index.html
 
-rt - right turn <br>
-lt - left turn <br>
-fd - forward <br>
-bk - backward <br>
-pu - pen up <br>
-pd - pen down <br>
-ht - hide turtle <br>
-st - show turtle <br>
-repeat - to repeat the commands. <br>
-pt - pen thickness in pixel <br>
-pc - color in hex or words <br>
-dt - a round dot twice the line width
+# Licenses and resources
 
-# Repeat syntax
+Fonts utilized – under Open Font License (www.openfontlicense.org) – from Google Fonts (www.fonts.google.com):
 
-` repeat loopCount [ commands ] `
+- Workbench, from Jens Kutílek;
+- Share Tech Mono, from Carrois Apostrophe;
+- Silkscreen, from Jason Kottke.
 
-# Commands to be added (Contribute if you want 😍)
-we are all done 😃, Suggestions Accepted
+Css stylesheet from Picnic CSS (www.picnicss.com), under MIT license. Animated backgrounds use particles.js 
+(www.github.com/arcbruederlin/particles.js), also under MIT.
 
-# Add extra pattern commands to the file AwesomePatterns
-
-Inspired by https://www.youtube.com/watch?v=i-k04yzfMpw
+The interpreter uses P5js (www.p5js.org) (www.github.com/processing/p5.js/blob/main/license.txt).
